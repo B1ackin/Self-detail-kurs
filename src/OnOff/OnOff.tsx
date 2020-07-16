@@ -1,6 +1,11 @@
 import React, {useState} from 'react';
 
-function OnOff() {
+type OnOffType = {
+    onChange: (on: boolean) => void
+}
+
+
+function OnOff(props: OnOffType) {
 
     let [on, setOn] = useState(false)
 
@@ -32,10 +37,20 @@ function OnOff() {
 
     }
 
+    const OnCliked = () => {
+        setOn(true)
+        props.onChange(true)
+    }
+
+    const offCliked = () => {
+        setOn(false)
+        props.onChange(false)
+    }
+
     return (
         <div>
-            <div style={onStyle} onClick={ () => {setOn(true) }}>On</div>
-            <div style={offStyle} onClick={ () => {setOn(false) }}>Off</div>
+            <div style={onStyle} onClick={ OnCliked }>On</div>
+            <div style={offStyle} onClick={ offCliked }>Off</div>
             <div style={indicatorStyle}></div>
         </div>
     )

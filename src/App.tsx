@@ -15,7 +15,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <OnOff/>
+                <OnOff onChange={setOn}/> {on.toString()}
                 <ControlledOnOff onClick={setOn} on={on}/>
                 <Accordion titleValue={"Menu-1"}/>
                 <Accordion titleValue={"Menu-2"}/>
