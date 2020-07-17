@@ -6,7 +6,7 @@ export type PropsTitle = {
 
 
 
-function Accordion(props: PropsTitle) {
+export function UncontrolledAccordion(props: PropsTitle) {
 
     let[collapsed, setCollapsed] = useState(true)
 
@@ -47,4 +47,4 @@ function AccordionBody() {
 
 
 
-export default Accordion;
+export default UncontrolledAccordion;

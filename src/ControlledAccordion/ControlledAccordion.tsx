@@ -1,5 +1,5 @@
 import React from 'react';
-import Accordion, {AccordionTitle} from "../Uncontrolledaccordion/Accordion";
+import UncontrolledAccordion, {AccordionTitle} from "../UncontrolledAccordion/UncontrolledAccordion";
 
 
 

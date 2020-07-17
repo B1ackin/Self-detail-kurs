@@ -5,9 +5,9 @@ type OnOffType = {
 }
 
 
-function OnOff(props: OnOffType) {
+export function UncontrolledOnOff(props: OnOffType) {
 
-    let [on, setOn] = useState(false)
+    let [UnOn, setUnOn] = useState(false)
 
     const onStyle = {
         border: "1px solid black",
@@ -15,7 +15,7 @@ function OnOff(props: OnOffType) {
         width: "30px",
         display: "inline-block",
         padding: "6px",
-        backgroundColor: on ? "green" : "white"
+        backgroundColor: UnOn ? "green" : "white"
     }
     const offStyle = {
         border: "1px solid black",
@@ -23,7 +23,7 @@ function OnOff(props: OnOffType) {
         width: "30px",
         display: "inline-block",
         padding: "6px",
-        backgroundColor: on ? "white" : "red"
+        backgroundColor: UnOn ? "white" : "red"
 
     }
     const indicatorStyle = {
@@ -33,17 +33,17 @@ function OnOff(props: OnOffType) {
         borderRadius: "15px",
         display: "inline-block",
         marginLeft: "10px",
-        backgroundColor: on ? "green" : "red"
+        backgroundColor: UnOn ? "green" : "red"
 
     }
 
     const OnCliked = () => {
-        setOn(true)
+        setUnOn(true)
         props.onChange(true)
     }
 
     const offCliked = () => {
-        setOn(false)
+        setUnOn(false)
         props.onChange(false)
     }
 
@@ -60,4 +60,4 @@ function OnOff(props: OnOffType) {
 }
 
 
-export default OnOff;
+// export default UncontrolledOnOff;

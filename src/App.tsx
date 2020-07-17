@@ -1,31 +1,33 @@
 import React, {useState} from 'react';
-import OnOff from "./OnOff/OnOff";
-import Accordion from "./Uncontrolledaccordion/Accordion";
-import Rating from "./Rating/Rating";
+import {UncontrolledOnOff} from "./UncontrolledOnOff/UncontrolledOnOff";
+import UncontrolledAccordion from "./UncontrolledAccordion/UncontrolledAccordion";
 import ContolledRating, {RatingValueType} from "./ControlledRating/ControlledRating";
-import ControlledAccordion from "./Controlledaccordion/ControlledAccordion";
+import ControlledAccordion from "./ControlledAccordion/ControlledAccordion";
 import ControlledOnOff from "./ControlledOnOff/ControlledOnOff";
+import {UncontrolledRating} from './UncontrolledRating/UncontrolledRating';
+
 
 function App() {
 
     let [RatintValue, setRatintValue] = useState<RatingValueType>(0)
     let [collapsed, setCollapsed] = useState<boolean>(false)
     let [on, setOn] = useState<boolean>(false)
+    let [unOn, setUnOn] = useState<boolean>(false)
 
     return (
         <div className="App">
             <header className="App-header">
-                <OnOff onChange={setOn}/> {on.toString()}
+                <UncontrolledOnOff onChange={setUnOn}/> {unOn.toString()}
                 <ControlledOnOff onClick={setOn} on={on}/>
-                <Accordion titleValue={"Menu-1"}/>
-                <Accordion titleValue={"Menu-2"}/>
-                <Rating value={1}/>
+                <UncontrolledAccordion titleValue={"Menu-1"}/>
+                <UncontrolledAccordion titleValue={"Menu-2"}/>
+                <UncontrolledRating value={1}/>
                 <ContolledRating value={RatintValue} onClick={setRatintValue}/>
                 <ControlledAccordion titleValue={"Menu-2"} onClick={setCollapsed} collapsed={collapsed}/>
-                {/*<Rating value={2}/>*/}
-                {/*<Rating value={3}/>*/}
-                {/*<Rating value={4}/>*/}
-                {/*<Rating value={5}/>*/}
+                {/*<UncontrolledRating value={2}/>*/}
+                {/*<UncontrolledRating value={3}/>*/}
+                {/*<UncontrolledRating value={4}/>*/}
+                {/*<UncontrolledRating value={5}/>*/}
 
             </header>
         </div>
