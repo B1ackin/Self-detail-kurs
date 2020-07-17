@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {UncontrolledOnOff} from "./UncontrolledOnOff/UncontrolledOnOff";
 import UncontrolledAccordion from "./UncontrolledAccordion/UncontrolledAccordion";
-import ContolledRating, {RatingValueType} from "./ControlledRating/ControlledRating";
+import ControlledRating, {RatingValueType} from "./ControlledRating/ControlledRating";
 import ControlledAccordion from "./ControlledAccordion/ControlledAccordion";
 import ControlledOnOff from "./ControlledOnOff/ControlledOnOff";
 import {UncontrolledRating} from './UncontrolledRating/UncontrolledRating';
@@ -9,7 +9,7 @@ import {UncontrolledRating} from './UncontrolledRating/UncontrolledRating';
 
 function App() {
 
-    let [RatintValue, setRatintValue] = useState<RatingValueType>(0)
+    let [RatingValue, setRatingValue] = useState<RatingValueType>(0)
     let [collapsed, setCollapsed] = useState<boolean>(false)
     let [on, setOn] = useState<boolean>(false)
     let [unOn, setUnOn] = useState<boolean>(false)
@@ -22,7 +22,7 @@ function App() {
                 <UncontrolledAccordion titleValue={"Menu-1"}/>
                 <UncontrolledAccordion titleValue={"Menu-2"}/>
                 <UncontrolledRating value={1}/>
-                <ContolledRating value={RatintValue} onClick={setRatintValue}/>
+                <ControlledRating value={RatingValue} onClick={setRatingValue}/>
                 <ControlledAccordion titleValue={"Menu-2"} onClick={setCollapsed} collapsed={collapsed}/>
                 {/*<UncontrolledRating value={2}/>*/}
                 {/*<UncontrolledRating value={3}/>*/}

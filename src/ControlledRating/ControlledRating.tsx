@@ -8,7 +8,7 @@ type RatingType = {
 }
 
 
-export function ContolledRating(props:RatingType) {
+export function ControlledRating(props:RatingType) {
 
     // let[value, setValue] = useState(0)
 
@@ -38,4 +38,4 @@ function Star(props: StarPropsType) {
 
 }
 
-export default ContolledRating;
+export default ControlledRating;
