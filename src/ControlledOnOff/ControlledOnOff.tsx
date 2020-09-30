@@ -1,5 +1,4 @@
 import React, {Dispatch, SetStateAction, useState} from 'react';
-import {on} from "cluster";
 import {RatingValueType} from "../ControlledRating/ControlledRating";
 
 export type OnOffType = boolean
@@ -44,8 +43,8 @@ function ControlledOnOff(props: ControlledOnOff) {
 
     return (
         <div>
-            <div style={onStyle} onClick={ () => {props.onClick(!props.on) }}>On</div>
-            <div style={offStyle} onClick={ () => {props.onClick(!props.on ) }}>Off</div>
+            <div style={onStyle} onClick={ () => {props.onClick(true) }}>On</div>
+            <div style={offStyle} onClick={ () => {props.onClick(false) }}>Off</div>
             <div style={indicatorStyle}></div>
         </div>
     )

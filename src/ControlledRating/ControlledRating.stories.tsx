@@ -5,7 +5,7 @@ import ControlledRating, {RatingValueType} from "./ControlledRating";
 
 
 export default {
-    title: 'UncontrolledRating',
+    title: 'ControlledRating',
     component: ControlledRating,
 };
 

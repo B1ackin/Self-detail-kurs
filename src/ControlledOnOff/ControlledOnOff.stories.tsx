@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-// import ControlledRating, {RatingValueType} from "./ControlledRating";
+import {action} from "@storybook/addon-actions";
 import ControlledOnOff from "./ControlledOnOff";
+
 
 
 
@@ -9,11 +10,13 @@ export default {
     component: ControlledOnOff,
 };
 
-export const OnMode = () => <ControlledOnOff on={true} onClick={x=>x}/> ;
-export const OffMode = () => <ControlledOnOff on={false} onClick={x=>x}/> ;
+const callback = action("on or off clicked");
+
+export const OnMode = () => <ControlledOnOff on={true} onClick={callback}/> ;
+export const OffMode = () => <ControlledOnOff on={false} onClick={callback}/> ;
 
 export const ModeChanging = () => {
 
-    const [controlledOnOff, setControlledOnOff] = useState<boolean>(false)
+    const [controlledOnOff, setControlledOnOff] = useState<boolean>(true);
     return <ControlledOnOff  on={controlledOnOff} onClick={setControlledOnOff}/> ;
 }

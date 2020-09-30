@@ -1,54 +1,55 @@
 import React from 'react';
 import UncontrolledAccordion, {AccordionTitle} from "../UncontrolledAccordion/UncontrolledAccordion";
 
-
+type ItemType = {
+    title: string
+    value: any
+}
 
 export type PropsTitle = {
     titleValue: string
-    onClick: (value: boolean) => void
+    onChange: () => void
     collapsed: boolean
+    items: ItemType[]
+    onClick: (value:any) => void
 }
 
 
-
-function ControlledAccordion(props: PropsTitle) {
-
-
-
+export function ControlledAccordion(props: PropsTitle) {
     return (
         <div>
-            <ControlledAccordionTitle titleValue={props.titleValue} onClick={ () => { props.onClick(!props.collapsed)}} />
-            { !props.collapsed && <ControlledAccordionBody/> }
+            <ControlledAccordionTitle titleValue={props.titleValue} onChange={props.onChange}/>
+            {!props.collapsed && <ControlledAccordionBody items={props.items} onClick={props.onClick}/>}
         </div>
     )
 }
 
 type AccordionPropsTitle = {
     titleValue: string
-    onClick: () => void
+    onChange: () => void
 }
 
 export function ControlledAccordionTitle(props: AccordionPropsTitle) {
 
     return (
         <div>
-            <h3 onClick={ () => { props.onClick() }}>{props.titleValue}</h3>
+            <h3 onClick={(e) => props.onChange()}>{props.titleValue}</h3>
         </div>
     )
 }
 
+export type ControlledAccordionBodyPropsType = {
+    items: ItemType[]
+    onClick: (value:any) => void
+}
 
-function ControlledAccordionBody() {
+function ControlledAccordionBody(props: ControlledAccordionBodyPropsType) {
 
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {props.items.map( (i,index) => <li onClick={ () => {props.onClick(i.value)}} key={index}>{i.title}</li>)}
         </ul>
     )
 }
 
 
-
-export default ControlledAccordion;
