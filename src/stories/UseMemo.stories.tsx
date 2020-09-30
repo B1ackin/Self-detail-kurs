@@ -4,7 +4,7 @@ export default {
     title: 'useMemo',
 }
 
-export const Example1 = () => {
+export const DifficultCountingExample = () => {
 
     const [a, setA] = useState<number>(5)
     const [b, setB] = useState<number>(5)
@@ -18,7 +18,7 @@ export const Example1 = () => {
             let fake = 0;
             while( fake < 100000000) {
                 fake++;
-                const fakeValue = Math.random()
+                const fakeValue = Math.random();
             }
             tempResultA = tempResultA * i;
         }
@@ -27,14 +27,6 @@ export const Example1 = () => {
 
     },[a]);
 
-    for ( let i = 1; i <= a; i++) {
-        let fake = 0;
-        while( fake < 100000000) {
-            fake++;
-            const fakeValue = Math.random()
-        }
-        resultA = resultA * i;
-    }
 
     for ( let i = 1; i <= b; i++) {
         resultB = resultB * i;
@@ -55,4 +47,38 @@ export const Example1 = () => {
 
 
         </>
+}
+
+
+
+const UsersSecret = (props: {users: Array<string>}) => {
+    return <div>
+        {props.users.map ((u,i) => <div key={i}>{u}</div>)}
+    </div>
+}
+
+const Users = React.memo(UsersSecret);
+
+export const HelpsToReactsMemo = () => {
+
+    const [counter, setCounter] = useState(0);
+    const [users, setUsers] = useState(["Dimych", "Valera", "Kirill"])
+
+    const newArray = useMemo(() => {
+       const newArray = users.filter(u => u.toLowerCase().indexOf("a") > -1);
+       return newArray;
+    }, [users])
+
+    const addUser = () => {
+        const newUsers = [...users, "Sveta " + new Date().getTime()]
+        setUsers(newUsers)
+    }
+
+    return <div>
+        <button onClick={() => setCounter(counter + 1)}>+</button>
+
+        <button onClick={() => addUser()}>add user</button>
+        {counter}
+        <Users users={newArray}/>
+    </div>
 }
