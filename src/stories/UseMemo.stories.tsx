@@ -71,7 +71,7 @@ export const HelpsToReactsMemo = () => {
 
     const addUser = () => {
         const newUsers = [...users, "Sveta " + new Date().getTime()]
-        setUsers(newUsers)
+        setUsers(newUsers);
     }
 
     return <div>
