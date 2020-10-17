@@ -10,9 +10,12 @@ type RatingType = {
 
 export function ControlledRating(props:RatingType) {
 
-    // let[value, setValue] = useState(0)
+
 
     return (
+        // Проверяем по клику, какое value нам надо. Если Value больше например 1, то сетаем в setRatingValue 2 и загорается
+        // 2 звездочки и передаем значение value в компоненту STAR и отрисовываем
+        //props.onClick функция которая принимает значения RatingValueType и может быть от 1 до 5.
         <div>
             <Star selected={props.value > 0} onClick={props.onClick} value={1}/>
             <Star selected={props.value > 1} onClick={props.onClick} value={2}/>
@@ -31,7 +34,8 @@ type StarPropsType = {
 }
 
 function Star(props: StarPropsType) {
-
+    // по клику на спан, вызываем функцию которая в onClick сетает значение полученого value, затем идет тернарное выражение
+    // если props.selected больше например 2, то отрисовать 2 звездочки в теге <b> а если нет, то обычную строчную
     return <span onClick={ () => { props.onClick(props.value) }}> {props.selected ? <b>STAR </b> : "STAR" } </span>
 
 
