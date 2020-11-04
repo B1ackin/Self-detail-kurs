@@ -5,6 +5,7 @@ import ControlledRating, {RatingValueType} from "./ControlledRating/ControlledRa
 import {ControlledAccordion} from "./ControlledAccordion/ControlledAccordion";
 import ControlledOnOff from "./ControlledOnOff/ControlledOnOff";
 import {UncontrolledRating} from './UncontrolledRating/UncontrolledRating';
+import {SetTimeoutExample, SimpleExample} from "./stories/UseEffect.stories";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
                 {/*<UncontrolledRating value={3}/>*/}
                 {/*<UncontrolledRating value={4}/>*/}
                 {/*<UncontrolledRating value={5}/>*/}
+
 
             </header>
         </div>
