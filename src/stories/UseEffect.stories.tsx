@@ -59,6 +59,31 @@ export const SetTimeoutExample = () => {
     </div>
 }
 
+export const ResetEffectExample = () => {
+    const [counter, setCounter] = useState(1);
+
+    console.log("Reset Effect Example");
+
+
+    useEffect(() => {
+
+        console.log("Effect" + counter)
+
+        return () => {
+            console.log(" RESET")
+        }
+
+    }, [counter])
+
+    const increase = () => {setCounter(counter + 1)}
+
+    return <div>
+        Hello, {counter}
+        <button onClick={increase}>+</button>
+    </div>
+}
+
+
 
 export const SetIntervalExample = () => {
     const [fake, setFake] = useState(1)
@@ -82,4 +107,24 @@ export const SetIntervalExample = () => {
     </div>
 }
 
+export const KeyTrackerExample = () => {
+    const [text, setText] = useState('');
 
+    console.log("Reset Effect Example" + text);
+
+
+    useEffect(() => {
+
+        window.addEventListener('Key', (e) => {
+            console.log(e.key)
+            setText(text + e)
+
+        })
+
+    }, [])
+
+
+    return <div>
+        Typed text: {text}
+    </div>
+}
