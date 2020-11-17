@@ -116,7 +116,7 @@ export const KeyTrackerExample = () => {
     useEffect(() => {
 
         window.addEventListener('Key', (e) => {
-            console.log(e.key)
+            console.log(e)
             setText(text + e)
 
         })
