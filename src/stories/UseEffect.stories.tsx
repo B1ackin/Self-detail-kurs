@@ -94,11 +94,14 @@ export const SetIntervalExample = () => {
 
     useEffect(() => {
 
-        setInterval(() => {
+        const intervalID = setInterval(() => {
             setCounter((state) => state + 1)
         }, 1000);
-    }, [])
 
+        return () => {
+            clearInterval(intervalID)
+        }
+    }, [])
 
 
     return <div>
@@ -115,13 +118,16 @@ export const KeyTrackerExample = () => {
 
     useEffect(() => {
 
-        window.addEventListener('Key', (e) => {
-            console.log(e)
-            setText(text + e)
+        const handler = (e: KeyboardEvent) => {
+            console.log(e.key);
+            setText(text + e.key)
+        }
+        window.addEventListener('keypress', handler)
+        return () => {
+            window.removeEventListener('keypress', handler)
+        }
 
-        })
-
-    }, [])
+    }, [text])
 
 
     return <div>
